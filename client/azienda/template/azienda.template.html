@@ -1,0 +1,21 @@
+<table class="table table-bordered table-striped table-condensed table-responsive">
+	<thead>
+		<tr>
+			<th ng-click="vm.sortBy('id');">ID</th>
+			<th ng-click="vm.sortBy('nome');">Nome</th>
+			<th ng-click="vm.sortBy('mail');">Mail</th>
+			<th ng-click="vm.sortBy('sito');">Sito</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="azienda in vm.aziende | orderBy:vm.sortParam:vm.reverse | filter:search " ng-click="vm.getAziendaByID(azienda.id);">
+			<td ng-bind="azienda.id"></td>
+			<td ng-bind="azienda.nome"></td>
+			<td ng-bind="azienda.mail | emailFilter:str"></td>
+			<td ng-bind="azienda.sito | emailFilter:str"></td>
+		</tr>
+	</tbody>
+</table>
+
+<input type="text" ng-model='search'>
+<input type="text" ng-model='str'>
