@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var CONFIG = require('./config.js');
-console.log(CONFIG);
+
 //CONNESSION DATABASE MONGOLAB
 var mongoose = require('mongoose');
 mongoose.connect(CONFIG.db, function(err){
