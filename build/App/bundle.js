@@ -26,24 +26,7 @@
 		$routeProvider
 			.when('/', {
 				controller: 'AziendaController as vm',
-				templateUrl: '/App/view/azienda/template/azienda.template.html',
-				resolve: {
-					resol: function (AziendaService) {
-						return AziendaService.get();
-					}
-				}
-			})
-			.when('/azienda', {
-				controller: 'AziendaController as vm',
-				templateUrl: '/App/view/azienda/template/azienda.template.html',
-				resolve: {
-					resol: function (AziendaService) {
-						return AziendaService.get();
-					}
-				}
-			}).when('/azienda/details/:id', {
-				controller: 'AziendaDetailsController as vm',
-				templateUrl: '/App/view/azienda/template/azienda.details.template.html'
+				templateUrl: '/App/view/azienda/template/azienda.template.html'
 			});
 	}
 })();
@@ -53,21 +36,10 @@
 	angular.module('App.azienda')
 		.controller('AziendaController', AziendaController);
 
-	AziendaController.$inject = ['resol', 'AziendaService', '$location'];
+	AziendaController.$inject = ['AziendaService', '$location'];
 
-	function AziendaController(resol, AziendaService, $location) {
+	function AziendaController(AziendaService, $location) {
 		var vm = this;
-
-		vm.aziende = resol;
-
-		vm.sortBy = function (order) {
-			vm.reverse = (vm.sortParam === order) ? !vm.reverse : false;
-			return vm.sortParam = order;
-		}
-
-		vm.getAziendaByID = function (id) {
-			$location.path('/azienda/details/' + id);
-		}
 	}
 })();
 (function () {
@@ -155,16 +127,12 @@
 	function AziendaNavController($scope, AziendaService, $location) {
 		var vm = this;
 
-		vm.cambiare = function (dati) {
-			console.log(dati);
-			if(dati){
-				vm.azienda.nome = dati.nome || vm.azienda.nome;
-				vm.azienda.sito = dati.sito || vm.azienda.sito;
-				vm.azienda.mail = dati.mail || vm.azienda.mail;
-				AziendaService.save(vm.azienda);
-			}
-			$location.path('azienda/');
-			return;
+		vm.login = function () {
+			return $location.path('/login');
+		}
+
+		vm.registrare = function () {
+			return $location.path('/register');
 		}
 	}
 })();

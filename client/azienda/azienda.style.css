@@ -114,25 +114,3 @@
 .cont_2-r>.d4{
 	background: url('../view/azienda/img/im4.png') no-repeat -503px 34px;
 }
-.wrap{
-	height: 50px;
-	background-color: #e7e7e7;
-}
-.navBar{
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	height: 50px;
-}
-.navBar>span{
-	padding: 15px 21px;
-}
-.navBar>span:hover{
-	cursor: pointer;
-	border-bottom: 1px solid black; 
-}

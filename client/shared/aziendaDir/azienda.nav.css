@@ -1,5 +1,6 @@
 .wrap{
 	height: 50px;
+	background-color: #e7e7e7;
 }
 .navBar{
 	display: -webkit-flex;

@@ -8,24 +8,7 @@
 		$routeProvider
 			.when('/', {
 				controller: 'AziendaController as vm',
-				templateUrl: '/App/view/azienda/template/azienda.template.html',
-				resolve: {
-					resol: function (AziendaService) {
-						return AziendaService.get();
-					}
-				}
-			})
-			.when('/azienda', {
-				controller: 'AziendaController as vm',
-				templateUrl: '/App/view/azienda/template/azienda.template.html',
-				resolve: {
-					resol: function (AziendaService) {
-						return AziendaService.get();
-					}
-				}
-			}).when('/azienda/details/:id', {
-				controller: 'AziendaDetailsController as vm',
-				templateUrl: '/App/view/azienda/template/azienda.details.template.html'
+				templateUrl: '/App/view/azienda/template/azienda.template.html'
 			});
 	}
 })();

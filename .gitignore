@@ -6,6 +6,7 @@ bower_components
 config/custom*.json
 scripts/config.js
 build/letlife
+build/App/bundle.js
 build/vendors
 build/view
 coverage
