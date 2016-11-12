@@ -15,6 +15,11 @@ gulp.task('build-html', function () {
   .pipe(gulp.dest(config.DEST+'/../view'))
 })
 
+gulp.task('build-img', function () {
+  gulp.src(config.imgSrc)
+  .pipe(gulp.dest(config.DEST+'/../view'))
+})
+
 gulp.task('build-js', function () {
   gulp.src(config.jsSrc)
   .pipe(sourcemaps.init())
@@ -42,11 +47,12 @@ gulp.task('build-config', function () {
   .pipe(gulp.dest(config.DEST))
 })
 
-gulp.task('build', ['build-config', 'build-js', 'build-html', 'build-css', 'build-json'],  function(){});
+gulp.task('build', ['build-config', 'build-js', 'build-html', 'build-img', 'build-css', 'build-json'],  function(){});
 
 gulp.task('watch', function() {
   gulp.watch(config.jsSrc, ['build-js']);
   gulp.watch(config.htmlSrc, ['build-html']);
+  gulp.watch(config.htmlSrc, ['build-img']);
   gulp.watch(config.cssSrc, ['build-css']);
   gulp.watch(config.jsonSrc, ['build-json']);
 });
