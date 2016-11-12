@@ -2,13 +2,12 @@
 	'use strict';
 
 	angular.module('App.azienda')
-		.controller('AziendaDirController', AziendaDirController);
+		.controller('AziendaNavController', AziendaNavController);
 
-	AziendaDirController.$inject = ['$scope', 'AziendaService', '$location'];
+	AziendaNavController.$inject = ['$scope', 'AziendaService', '$location'];
 
-	function AziendaDirController($scope, AziendaService, $location) {
+	function AziendaNavController($scope, AziendaService, $location) {
 		var vm = this;
-		vm.azienda = JSON.parse($scope.details);
 
 		vm.cambiare = function (dati) {
 			console.log(dati);

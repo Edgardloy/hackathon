@@ -11,6 +11,11 @@
     "client/**/*.html"
   ],
 
+  "imgSrc":[
+    "client/**/*.png",
+    "client/**/*.jpg"
+  ],
+
   "cssSrc":[
     "client/**/*.css"
   ],

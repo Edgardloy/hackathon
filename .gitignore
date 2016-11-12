@@ -5,8 +5,8 @@ bower_components
 *.swp
 config/custom*.json
 scripts/config.js
-build/letlife
 build/vendors
 build/view
+build/App/bundle.js
 coverage
 server/config.js

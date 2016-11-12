@@ -1,36 +1,32 @@
 var mongoose = require('mongoose');
-var Hero = require('./heroes.model');
+var Produzione = require('./produzione.model');
 
 module.exports = function() {
 
-    //LISTA DI TUTTI GLI EROI
     var list = function(req, res) {
-        Hero.find().exec()
+        Produzione.find().exec()
             .then(function(data) {
                 res.json(data);
             });
     };
 
-    //DETTAGLIO DI UN SINGOLO EROE
     var detail = function(req, res) {
         var id = req.params.id;
-        Hero.findById(id)
-            .populate('weapons')
+        Produzione.findById(id)
             .exec()
             .then(function(data) {
                 res.status(200).send(data);
             },function(data) {
-                res.status(404).send({'error':'Eroe non trovato nel database'});
+                res.status(404).send({'error':'Produzione non trovato nel database'});
             })
             .catch(function(err) {
                 res.status(500).send(err);
             });
     };
 
-    //CREAZIONE DI UN NUOVO EROE
     var create = function(req, res) {
-        var newHero = new Hero(req.body);
-        newHero.save()
+        var newProduzione = new Produzione(req.body);
+        newProduzione.save()
             .then(function(data) {
                 res.status(200).send(data);
             })
@@ -38,15 +34,14 @@ module.exports = function() {
                 res.status(500).send(err);
             });
     };
-
-    //AGGIORNAMENTO DI UN EROE
+    
     var update = function(req, res) {
         var id = req.params.id;
-        Hero.findByIdAndUpdate(id, req.body, {new: true})
+        Produzione.findByIdAndUpdate(id, req.body, {new: true})
             .then(function(data) {
                 res.status(200).send(data);
             },function() {
-                res.status(404).send({'error':'Eroe non trovato nel database'});
+                res.status(404).send({'error':'Produzione non trovato nel database'});
             })
             .catch(function(err) {
                 res.status(500).send(err);
@@ -55,14 +50,14 @@ module.exports = function() {
 
     var remove = function(req, res) {
         var id = req.params.id;
-        Hero.findById(id).exec()
+        Produzione.findById(id).exec()
             .then(function(hero) {
                 return hero.remove();
             })
             .then(function() {
-                res.status(200).send('Eroe rimosso dal database');
+                res.status(200).send('Produzione rimosso dal database');
             }, function() {
-                res.status(404).send({'error':'Eroe non trovato nel database'});
+                res.status(404).send({'error':'Produzione non trovato nel database'});
             })
             .catch(function(err) {
                 res.status(500).send(err);

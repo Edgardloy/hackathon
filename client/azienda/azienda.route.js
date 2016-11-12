@@ -6,6 +6,15 @@
 
 	function config($routeProvider) {
 		$routeProvider
+			.when('/', {
+				controller: 'AziendaController as vm',
+				templateUrl: '/App/view/azienda/template/azienda.template.html',
+				resolve: {
+					resol: function (AziendaService) {
+						return AziendaService.get();
+					}
+				}
+			})
 			.when('/azienda', {
 				controller: 'AziendaController as vm',
 				templateUrl: '/App/view/azienda/template/azienda.template.html',

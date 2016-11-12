@@ -1,5 +1,5 @@
 angular.module('App')
-	.directive('azienda', [function () {
+	.directive('navMenu', [function () {
 
 		function miao(scope, elem, attrs, ctrl) {
 			
@@ -7,8 +7,8 @@ angular.module('App')
 
 		return {
 			restrict: 'E',
-			controller: 'AziendaDirController as vm',
-			templateUrl: '/App/view/shared/aziendaDir/template/azienda.html',
+			controller: 'AziendaNavController as vm',
+			templateUrl: '/App/view/shared/aziendaDir/template/navMenu.html',
 			scope: {
 				details: '@'
 			},

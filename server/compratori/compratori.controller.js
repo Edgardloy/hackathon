@@ -1,23 +1,23 @@
 var mongoose = require('mongoose');
-var Weapon = require('./weapons.model');
+var Compratori = require('./compratori.model');
 
 module.exports = function() {
 
     var list = function(req, res) {
-        Weapon.find().exec()
-            .then(function(weapons) {
-                res.json(weapons);
+        Compratori.find().exec()
+            .then(function(data) {
+                res.json(data);
             });
     };
 
 
     var detail = function(req, res) {
-        Weapon.findById(req.params.id).exec()
-            .then(function(weapon) {
-                if (!weapon) {
-                    return res.status(404).send('Weapon not found');
+        Compratori.findById(req.params.id).exec()
+            .then(function(data) {
+                if (!data) {
+                    return res.status(404).send('not found');
                 }
-                res.json(weapon);
+                res.json(data);
             })
             .catch(function(err) {
                 res.status(500).send(err);
@@ -29,7 +29,7 @@ module.exports = function() {
     	if(req.body._id){
 
     	//SE ESISTE l'ID FA L' UPDATE
-        Weapon.findByIdAndUpdate(req.body._id, req.body)
+        Compratori.findByIdAndUpdate(req.body._id, req.body)
             .then(function() {
                 res.status(200).send();
             })
@@ -39,9 +39,9 @@ module.exports = function() {
     	} else {
     		//NON ESISTE l'ID QUINDI FA IL CREATE
     		req.body.id = mongoose.Types.ObjectId();
-    		var newWeapon = new Weapon(req.body);
-    		newWeapon.increseDamage();
-    		newWeapon.save()
+    		var newCompratoro = new Compratori(req.body);
+    		newCompratoro.increseDamage();
+    		newCompratoro.save()
             .then(function() {
                 res.status(200).send();
             })
@@ -53,9 +53,9 @@ module.exports = function() {
     };
 
     var remove = function(req, res){
-    	Weapon.findById(req.params.id).exec()
-    		 .then(function(weap) {
-    		 	return weap.remove();
+    	Compratori.findById(req.params.id).exec()
+    		 .then(function(data) {
+    		 	return data.remove();
             }).then(function(){
                 res.status(200).send();
             })

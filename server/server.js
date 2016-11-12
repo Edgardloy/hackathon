@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var CONFIG = require('./config.js');
+const CONFIG = require('./config.js');
 
 //CONNESSION DATABASE MONGOLAB
 var mongoose = require('mongoose');
@@ -37,8 +37,9 @@ app.use('/App', express.static(path.join(__dirname, '..', 'build')));
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 //LE NOSTRE API
-app.use('/weapons',require('./weapons'));
-app.use('/heroes',require('./heroes'));
+app.use('/compratori',require('./compratori'));
+app.use('/produttore',require('./produttore'));
+app.use('/produzione',require('./produzione'));
 
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +48,6 @@ app.get('/',function(req, res){
   res.sendFile(path.join(__dirname,"..","build","index.html"));
 });
 
-console.log(CONFIG);
 /////////////////////////////////////////////////////////////////////////////////
 //START SERVER
 app.listen(CONFIG.port, function(){
