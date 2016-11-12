@@ -3,8 +3,9 @@
 
   var App = angular.module('App',[
     'ngRoute',
-    
-    'App.azienda'
+
+    'App.azienda',
+    'App.users'
   ])
 
 

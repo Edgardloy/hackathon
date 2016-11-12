@@ -23,7 +23,8 @@
 						return AziendaService.get();
 					}
 				}
-			}).when('/azienda/details/:id', {
+			})
+			.when('/azienda/details/:id', {
 				controller: 'AziendaDetailsController as vm',
 				templateUrl: '/App/view/azienda/template/azienda.details.template.html'
 			});

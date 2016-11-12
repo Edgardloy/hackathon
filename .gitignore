@@ -7,6 +7,6 @@ config/custom*.json
 scripts/config.js
 build/vendors
 build/view
-build/App/bundle.js
+build/App
 coverage
 server/config.js
